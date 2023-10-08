@@ -1,4 +1,9 @@
-
+<!--
+edit.html - 임의로 정한 레코드의 모든 항목을 보여주면서 수정하는 폼을
+보여주는 Form 페이지
+- 필수 항목에 대해서 Validation Check Javascript 적용할 것
+- [수정] 버튼을 누르면 “게시물을 수정할까요?” Confirm 창 띄울 것
+-->
 <!doctype html>
 <html lang="en">
   <head>
@@ -13,38 +18,16 @@
     <link href="my.css" rel="stylesheet">
 
 
-
     <!-- Favicons -->
-<link rel="apple-touch-icon" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
-<link rel="icon" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
-<link rel="icon" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
-<link rel="manifest" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/manifest.json">
-<link rel="mask-icon" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
-<link rel="icon" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/favicon.ico">
-<meta name="msapplication-config" content="https://getbootstrap.com/docs/4.6/assets/img/favicons/browserconfig.xml">
-<meta name="theme-color" content="#563d7c">
+    <link rel="apple-touch-icon" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/favicon-32x32.png" sizes="32x32" type="image/png">
+    <link rel="icon" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/favicon-16x16.png" sizes="16x16" type="image/png">
+    <link rel="manifest" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/manifest.json">
+    <link rel="mask-icon" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/safari-pinned-tab.svg" color="#563d7c">
+    <link rel="icon" href="https://getbootstrap.com/docs/4.6/assets/img/favicons/favicon.ico">
+    <meta name="msapplication-config" content="https://getbootstrap.com/docs/4.6/assets/img/favicons/browserconfig.xml">
+    <meta name="theme-color" content="#563d7c">
 
-
-    <style>
-      .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-          font-size: 3.5rem;
-        }
-      }
-    </style>
-
-    
-    <!-- Custom styles for this template -->
-    <link href="form-validation.css" rel="stylesheet">
   </head>
   <body class="bg-light">
     
@@ -59,20 +42,17 @@
     <div class="col-md-8 order-md-1">
       <form class="needs-validation" novalidate>
         <div class="row">
-          <div class="col-md-6 mb-3">
-            <label for="firstName"><strong>공연 제목</strong></label>
-            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid first name is required.
+          <form id="nameForm">
+            <div class="col-md-6 mb-3">
+              <label for="firstName"><strong>공연 제목</strong></label>
+              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
             </div>
-          </div>
-          <div class="col-md-6 mb-3">
-            <label for="lastName"><strong>공연 장소</strong></label>
-            <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
-            <div class="invalid-feedback">
-              Valid last name is required.
+
+            <div class="col-md-6 mb-3">
+              <label for="lastName"><strong>공연 장소</strong></label>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
             </div>
-          </div>
+          </form>
         </div>
 
         <div class="mb-3">
@@ -137,4 +117,44 @@
     slider.oninput = function() {
         output.innerHTML = this.value;
     }
+</script>
+
+<script>
+  // 클래스 이름으로 요소 선택
+  var buttons = document.getElementsByClassName('btn');
+
+  // 선택된 모든 버튼에 대해 이벤트 처리
+  for (var i = 0; i < buttons.length; i++) {
+      buttons[i].addEventListener('click', function() 
+      {
+        var flag = 0;
+        var inputValue = document.getElementById('firstName').value;
+        var inputValue = document.getElementById('lastName').value;
+        var dateValue = document.getElementById('dateInput').value;
+
+        // 값이 없는 경우
+        if (inputValue.trim() === '') 
+        { // 공백을 제거한 후 검사
+          alert('공연 제목을 입력하세요.');
+          flag +=1;
+        }
+        if (inputValue.trim() === '') 
+        { // 공백을 제거한 후 검사
+          alert('공연 장소를 입력하세요.');
+          flag +=1;
+        }
+
+        // 값이 없는 경우
+        if (dateValue.trim() === '') 
+        { // 공백을 제거한 후 검사
+            alert('날짜를 선택하세요.');
+            flag+=1;
+        }
+        if(flag == 0)
+        {
+          alert('게시물이 추가됩니다');
+        }
+          
+      });
+  }
 </script>
