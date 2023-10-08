@@ -44,16 +44,28 @@ add.html - index.html에서 [Add]를 눌렀을 때 나오는 페이지로, 하�
         <div class="row">
           <form id="nameForm">
             <div class="col-md-6 mb-3">
-              <label for="firstName"><strong>공연 제목</strong></label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+              
             </div>
 
             <div class="col-md-6 mb-3">
-              <label for="lastName"><strong>공연 장소</strong></label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              
             </div>
           </form>
         </div>
+
+        <div class="mb-3">
+          <form id="dateForm">
+            <label for="firstName"><strong>공연 제목</strong></label>
+            <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+          </form>
+      </div>
+
+      <div class="mb-3">
+        <form id="dateForm">
+          <label for="lastName"><strong>공연 장소</strong></label>
+          <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+        </form>
+    </div>
 
         <div class="mb-3">
             <form id="dateForm">
@@ -70,19 +82,31 @@ add.html - index.html에서 [Add]를 눌렀을 때 나오는 페이지로, 하�
             </form>
         </div>
 
-        <div class="row">
-          <div class="col-md-5 mb-3">
-            <label for="country"><strong>장르</strong></label>
-            <select class="custom-select d-block w-100" id="country" required>
-              <option value="">뮤지컬</option>
-              <option value="">연극</option>
-              <option value="">음악 공연</option>
-              <option value="">미술</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid country.
-            </div>
+
+        <div class="mb-3">
+          <label for="country"><strong>장르</strong></label>
+          <select class="custom-select d-block w-100" id="country" required>
+            <option value="">뮤지컬</option>
+            <option value="">연극</option>
+            <option value="">음악 공연</option>
+            <option value="">미술</option>
+          </select>
+          <div class="invalid-feedback">
+            Please select a valid country.
           </div>
+        </div>
+
+
+
+        <div class="mb-3">
+          <form action="upload.php" method="post" enctype="multipart/form-data">
+            <label for="country"><strong>공연 포스터</strong></label>
+            <br>
+            <input type="file" name="image" id="image" accept="image/*">              
+            
+          </form>
+
+
         </div>
 
         <button class="btn btn-primary btn-lg btn-block" type="submit"><strong>추가</strong></button>
@@ -108,6 +132,16 @@ add.html - index.html에서 [Add]를 눌렀을 때 나오는 페이지로, 하�
         <script src="form-validation.js"></script>
   </body>
 </html>
+
+<style>
+  .row
+  {
+    display: flex; /* 내부 요소를 가로로 정렬하기 위해 Flexbox 사용 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    /* align-items: center;  세로 중앙 정렬 */
+
+  }
+</style>
 
 <script>
     var slider = document.getElementById("myRange");

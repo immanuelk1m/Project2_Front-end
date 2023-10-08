@@ -31,83 +31,123 @@ edit.html - 임의로 정한 레코드의 모든 항목을 보여주면서 수�
   </head>
   <body class="bg-light">
     
-<div class="container">
-  <div class="py-5 text-center">
-    <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.6/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
-    <h2>공연 정보 수정</h2>
-  </div>
-
-  <div class="row">
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.6/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h2>공연 정보 수정</h2>
+      </div>
     
-    <div class="col-md-8 order-md-1">
-      <form class="needs-validation" novalidate>
-        <div class="row">
-          <form id="nameForm">
-            <div class="col-md-6 mb-3">
-              <label for="firstName"><strong>공연 제목</strong></label>
-              <input type="text" class="form-control" id="firstName" placeholder="" value="" required>
+      <div class="row">
+        
+        <div class="col-md-8 order-md-1">
+          <form class="needs-validation" novalidate>
+            <div class="row">
+              <form id="nameForm">
+                <div class="col-md-6 mb-3">
+                  
+                </div>
+    
+                <div class="col-md-6 mb-3">
+                  
+                </div>
+              </form>
             </div>
-
-            <div class="col-md-6 mb-3">
+    
+            <div class="mb-3">
+              <form id="dateForm">
+                <label for="firstName"><strong>공연 제목</strong></label>
+                <input type="text" class="form-control" id="firstName" placeholder="" value="양반들 New Moon EP Showcase" required>
+              </form>
+          </div>
+    
+          <div class="mb-3">
+            <form id="dateForm">
               <label for="lastName"><strong>공연 장소</strong></label>
-              <input type="text" class="form-control" id="lastName" placeholder="" value="" required>
+              <input type="text" class="form-control" id="lastName" placeholder="" value="롤링홀" required>
+            </form>
+        </div>
+    
+            <div class="mb-3">
+                <form id="dateForm">
+                    <label for="address"><strong>공연 날짜</strong> </label><br>
+                    <input type="date" id="dateInput" name="date" value="2023-10-26">
+                </form>
             </div>
+    
+            <div class="mb-3">
+                <form class="slidecontainer">
+                    <label for="address"><strong>러닝 타임</strong> </label><br>
+                    <input type="range" min="1" max="300" value="240" class="slider" id="myRange">
+                    <p>(분) <span id="value"></span></p>
+                </form>
+            </div>
+    
+    
+            <div class="mb-3">
+              <label for="country"><strong>장르</strong></label>
+              <select class="custom-select d-block w-100" id="country" required>
+                <option value="">뮤지컬</option>
+                <option value="">연극</option>
+                <option value="">음악</option>
+                <option value="">미술</option>
+              </select>
+              <div class="invalid-feedback">
+                Please select a valid country.
+              </div>
+            </div>
+    
+    
+    
+            <div class="mb-3">
+              <form action="upload.php" method="post" enctype="multipart/form-data">
+                <label for="country"><strong>공연 포스터</strong></label>
+                <br>
+                <input type="file" name="image" id="image" accept="image/*">              
+                
+              </form>
+    
+    
+            </div>
+    
+            <button class="btn btn-primary btn-lg btn-block submitbtn" type="submit"><strong>추가</strong></button>
+            <a href="view.html"><button class="btn btn-primary btn-lg btn-block cancel-button" type="submit"><strong>취소</strong></button></a>
           </form>
         </div>
-
-        <div class="mb-3">
-            <form id="dateForm">
-                <label for="address"><strong>공연 날짜</strong> </label><br>
-                <input type="date" id="dateInput" name="date">
-            </form>
-        </div>
-
-        <div class="mb-3">
-            <form class="slidecontainer">
-                <label for="address"><strong>러닝 타임</strong> </label><br>
-                <input type="range" min="1" max="300" value="60" class="slider" id="myRange">
-                <p>(분) <span id="value"></span></p>
-            </form>
-        </div>
-
-        <div class="row">
-          <div class="col-md-5 mb-3">
-            <label for="country"><strong>장르</strong></label>
-            <select class="custom-select d-block w-100" id="country" required>
-              <option value="">뮤지컬</option>
-              <option value="">연극</option>
-              <option value="">음악 공연</option>
-              <option value="">미술</option>
-            </select>
-            <div class="invalid-feedback">
-              Please select a valid country.
-            </div>
-          </div>
-        </div>
-
-        <button class="btn btn-primary btn-lg btn-block" type="submit"><strong>추가</strong></button>
-      </form>
+      </div>
+    
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2022 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
     </div>
-  </div>
-
-  <footer class="my-5 pt-5 text-muted text-center text-small">
-    <p class="mb-1">&copy; 2017-2022 Company Name</p>
-    <ul class="list-inline">
-      <li class="list-inline-item"><a href="#">Privacy</a></li>
-      <li class="list-inline-item"><a href="#">Terms</a></li>
-      <li class="list-inline-item"><a href="#">Support</a></li>
-    </ul>
-  </footer>
-</div>
-
-
-    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-      <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.6/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
-
-      
-        <script src="form-validation.js"></script>
-  </body>
+    
+    
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+          <script>window.jQuery || document.write('<script src="https://getbootstrap.com/docs/4.6/assets/js/vendor/jquery.slim.min.js"><\/script>')</script><script src="https://getbootstrap.com/docs/4.6/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+    
+          
+            <script src="form-validation.js"></script>
+      </body>
 </html>
+
+<style>
+  .row
+  {
+    display: flex; /* 내부 요소를 가로로 정렬하기 위해 Flexbox 사용 */
+    justify-content: center; /* 가로 중앙 정렬 */
+    /* align-items: center;  세로 중앙 정렬 */
+
+  }
+
+  .cancel-button {
+            background-color: lightgray; /* 원하는 배경색으로 변경 */
+            border: none;
+        } 
+</style>
 
 <script>
     var slider = document.getElementById("myRange");
@@ -121,7 +161,7 @@ edit.html - 임의로 정한 레코드의 모든 항목을 보여주면서 수�
 
 <script>
   // 클래스 이름으로 요소 선택
-  var buttons = document.getElementsByClassName('btn');
+  var buttons = document.getElementsByClassName('submitbtn');
 
   // 선택된 모든 버튼에 대해 이벤트 처리
   for (var i = 0; i < buttons.length; i++) {
@@ -152,7 +192,8 @@ edit.html - 임의로 정한 레코드의 모든 항목을 보여주면서 수�
         }
         if(flag == 0)
         {
-          alert('게시물이 추가됩니다');
+          confirm('게시물을 수정할까요?');
+          alert("수정 완료");
         }
           
       });
